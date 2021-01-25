@@ -1,3 +1,7 @@
+from time import sleep
+from logins.comandos import menu
+
+
 def CriarArquivo(nome):
     chave = str(input(f'Tem certeza de criar o arquivo em {nome}? ')).upper().strip()
     if chave[0] == 'S':
@@ -18,20 +22,19 @@ def Existe(nome):
 
 
 def Ver(nome):
+    menu.Cabecalho('LENDO ARQUIVO')
     arquivo = open(nome, 'r')
     for linha in arquivo:
         palavra = linha.split()
         print(f'{palavra[0]}\nLogin: {palavra[1]}\t\tSenha: {palavra[2]}\n')
+        sleep(0.6)
 
 
 def Escrever(nome, a, b, c):
     try:
         arquivo = open(nome, 'at')
-        arquivo.write(f'{a}\t\t{b}\t\t\t{c}')
+        arquivo.write(f'{a}\t\t{b}\t\t\t{c}\n')
     except:
         print('Erro ao adicionar novo login')
     else:
         print('Dados adicionados')
-        Ver(nome)
-    finally:
-        arquivo.close()
