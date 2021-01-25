@@ -1,19 +1,19 @@
-def CriarArquivo(diretorio):
-    arquivo = open(diretorio, 'wt+')
+def CriarArquivo(nome):
+    chave = str(input(f'Tem certeza de criar o arquivo em {nome}? ')).upper().strip()
+    if chave[0] == 'S':
+        arquivo = open(nome, 'wt+')
+    else:
+        pass
 
 
-def ExistePasta(nome):
+def Existe(nome):
     try:
         pasta = open(nome, 'rt')
         pasta.close()
     except:
-        chave = str(input(f'deseja criar o arquivo "\033[31m{nome}\033[m" nesse diretorio? ')).upper()
-        if chave[0] == 'S':
-            CriarArquivo(nome)
-        else:
-            print('\033[34mPasta não encontrada\033[m')
+        print('\033[34m*Pasta não encontrada\033[m')
     else:
-        print('\033[34mPasta existente.\033[m')
+        print('\033[34m*Pasta existente.\033[m')
         return True
 
 
