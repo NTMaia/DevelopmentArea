@@ -25,7 +25,7 @@ def Menu(nome):
         while True:
             if acao == 1:
                 pasta.Existe(nome)
-                sleep(1.5)
+                sleep(2)
                 return Menu(nome)
             elif acao == 2:
                 if pasta.Existe(nome):
@@ -36,11 +36,16 @@ def Menu(nome):
                 pasta.Ver(nome)
                 return Menu(nome)
             elif acao == 4:
-                site = str(input('Site: ')).strip()
-                login = str(input('Login: ')).strip()
-                senha = str(input('Senha: ')).strip()
-                pasta.Escrever(nome, site, login, senha)
-                return Menu(nome)
+                if pasta.Existe(nome):
+                    site = str(input('Site: ')).strip()
+                    login = str(input('Login: ')).strip()
+                    senha = str(input('Senha: ')).strip()
+                    pasta.Escrever(nome, site, login, senha)
+                    return Menu(nome)
+                else:
+                    print("\033[0;31mERRO: Tente válidar a pasta primeiro.\033[m")
+                    sleep(1.5)
+                    return Menu(nome)
             elif acao == 5:
                 print('Finalizando...')
                 sleep(0.2)
