@@ -2,7 +2,7 @@
 Programa com objetivo de navegar por pastas na maquina atraves do terminal Python.
 
 # Atualização 25/01/2021
-Menu com algumas opções de iteração com o arquivo
+Menu com algumas opções de interação com o arquivo
 
 Validação da pastas (verificar o diretorio informado para ver se a pasta existe)
 
